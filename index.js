@@ -45,6 +45,7 @@ function checkAnswer(colour, length) {
         wrong.play();
         $(".btn").off();
         $("#level-title").text(`Game Over. Press any key to restart.`);
+        level = 1;
         $("body").addClass("game-over")
         setTimeout(function () {
             $("body").removeClass("game-over")
