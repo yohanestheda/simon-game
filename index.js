@@ -2,11 +2,8 @@ let colourOptions = ["blue", "green", "red", "yellow"]
 let level = 1;
 let colourSequence = [];
 let userColours = [];
-
 startGame();
-
 function startGame() {
-
     $(document).on("keypress", function () {
         $(document).off();
         $("#level-title").text("Level " + level);
@@ -17,12 +14,10 @@ function startGame() {
             buttonAnimation(pressedButton);
             userColours.push(pressedButton);
             checkAnswer(pressedButton, userColours.length);
-
         }
         );
     });
 }
-
 function checkAnswer(colour, length) {
     if (colour == colourSequence[length - 1]) {
         if (userColours.length == colourSequence.length) {
@@ -49,12 +44,10 @@ function checkAnswer(colour, length) {
         startGame();
     }
 }
-
 function playSound(activeSound) {
     let sound = new Audio("./sounds/" + activeSound + ".mp3");
     sound.play();
 }
-
 function buttonAnimation(activeButton) {
     $("#" + activeButton).addClass("pressed");
     setTimeout(function () {
@@ -62,7 +55,6 @@ function buttonAnimation(activeButton) {
     }
         , 100);
 }
-
 function nextColour() {
     let randomNumber = Math.floor(Math.random() * 4);
     newColour = colourOptions[randomNumber];
